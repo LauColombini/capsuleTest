@@ -18,11 +18,7 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
 import {createUser, verifyEmail} from '@usecapsule/react-native-wallet';
 
@@ -105,11 +101,11 @@ function App(): JSX.Element {
       await wallet.initSessionManagement();
 
       await wallet.init();
-      console.log(1);
+      console.log('Creating wallet...');
       await wallet.createAccount(recoveryShare => {
         console.log({recoveryShare});
       });
-      console.log(2);
+      console.log('Wallet created');
     } catch (err: any) {
       console.log({err});
     }
